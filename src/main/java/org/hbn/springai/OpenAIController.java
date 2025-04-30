@@ -30,29 +30,29 @@ public class OpenAIController {
 
     // command builder to run custom model
 
-    @GetMapping("/chat/{message}")
-    public String getAnswer(@PathVariable String message) {
-        String response = chatClient
-                .prompt(message)
-                .call()
-                .content();
-
-        return response;
-    }
-
-    //another way to use OpenAI API
-    @GetMapping("/chat1/{message}")
-    public ResponseEntity<String> getAnswer1(@PathVariable String message) {
-        String response = chatClient
-                .prompt(message)
-                .call()
-                .content();
-
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/chat/{message}")
+//    public String getAnswer(@PathVariable String message) {
+//        String response = chatClient
+//                .prompt(message)
+//                .call()
+//                .content();
+//
+//        return response;
+//    }
+//
+//    //another way to use OpenAI API
+//    @GetMapping("/chat1/{message}")
+//    public ResponseEntity<String> getAnswer1(@PathVariable String message) {
+//        String response = chatClient
+//                .prompt(message)
+//                .call()
+//                .content();
+//
+//        return ResponseEntity.ok(response);
+//    }
 
     // another way to get the response from the chat
-    @GetMapping("/chat2/{message}")
+    //@GetMapping("/chat/{message}")
     public ResponseEntity<String> getAnswer2(@PathVariable String message) {
         ChatResponse chatResponse = chatClient
                 .prompt(message)
@@ -70,3 +70,10 @@ public class OpenAIController {
     }
 
 }
+
+
+// cpommands used for ollama
+
+// ollama list => for listing the models available
+// ollama run modedl-name
+// ollama --version
